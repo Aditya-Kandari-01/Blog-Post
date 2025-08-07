@@ -45,7 +45,8 @@ router.post('/register', async (req, res) => {
         try {
             const user = await User.create({ username, password: hashedPassword })
             return res.render('success', {
-                 message: 'You have registered successfully!',
+                currentRoute:'/register',
+                message: 'You have registered successfully!'
             });
         } catch (error) {
             if (error.code === 11000) {
@@ -196,4 +197,5 @@ router.get('/logout', (req, res) => {
 
 
 module.exports = router;
+
 

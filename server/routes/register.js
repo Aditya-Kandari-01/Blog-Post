@@ -90,7 +90,7 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
         const token = jwt.sign({ userId: user._id }, jwtSecret)
-        res.cookie('token', token, { httpOnly: true, secure: process.env.JWT_SECRET === 'MySecretBlog' })
+        res.cookie('token', token, { httpOnly: true })
         res.redirect('/dashboard');
 
         // if (req.body.username === 'admin' && req.body.password === 'pass'){
@@ -192,6 +192,7 @@ router.get('/logout', (req, res) => {
     res.clearCookie('token');
     res.redirect('/');
 })
+
 
 
 module.exports = router;

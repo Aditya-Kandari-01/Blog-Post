@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 const adminLayout = '../views/layouts/login';
 const registerLayout = '../views/layouts/register';
 const logOutLayout = '../views/layouts/logout';
-const jwtSecret = process.env.JWT_SECRET;
+const jwtSecret = "MySecretBlog";
 
 const authMiddleware = (req, res, next) => {
     const token = req.cookies.token; // cookies['token'] = <token_value>
@@ -196,3 +196,4 @@ router.get('/logout', (req, res) => {
 
 
 module.exports = router;
+
